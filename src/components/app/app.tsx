@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export interface AppProps {
+interface AppProps {
   compiler: string;
   framework: string;
 };
 
-export class App extends React.Component<AppProps, {}> {
+export class App extends React.Component<{}> {
   render() {
     return (
       <div>HI</div>
