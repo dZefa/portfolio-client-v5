@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-interface AppProps {
-  compiler: string;
-  framework: string;
-};
+import { Navbar } from '../navbar/navbar';
+import { Intro } from '../intro/intro';
 
 export class App extends React.Component<{}> {
   render() {
     return (
-      <div>HI</div>
+      <div>
+        <Navbar />
+        <Intro />
+      </div>
     )
   }
 };
