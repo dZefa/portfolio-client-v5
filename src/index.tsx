@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
+import './global.scss';
+
 import { App } from './components/app/app';
 
 render(
