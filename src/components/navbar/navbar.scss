@@ -1,0 +1,66 @@
+@import '../../styles/colors.scss';
+
+@media only screen and (min-width: 0px) {
+  #navbar {
+    height: 50px;
+    position: fixed;
+    font-size: 1rem;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .left-nav {
+      text-align: center;
+      width: 100%;
+      margin: auto;
+    }
+
+    .right-nav {
+      width: 0%;
+      visibility: hidden;
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  #navbar {
+    display: unset;
+    line-height: 50px;
+
+    .left-nav {
+      padding-left: 5%;
+      display: inline-block;
+      width: auto;
+      margin: 0;
+    }
+
+    .right-nav {
+      padding-right: 5%;
+      visibility: visible;
+      width: auto;
+      float: right;
+
+      a {
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
