@@ -1,0 +1,61 @@
+@import '../../styles/colors.scss';
+
+@media only screen and (min-width: 0px) {
+  #intro {
+    background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-648410.jpg) no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+    color: white;
+
+    div {
+      flex-flow: column;
+      align-self: center;
+      text-align: center;
+
+      h1 {
+        margin: 0;
+        font-weight: bold;
+      }
+
+      hr {
+        border-top: 1px solid white;
+        max-width: 75%;
+        background: white;
+      }
+
+      p {
+        font-style: italic;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  
+}
+
+@media only screen and (min-width: 768px) {
+  #intro {
+    div {
+      max-width: 70%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #intro {
+    div {
+      max-width: 60%;
+
+      p {
+        max-width: 70%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
