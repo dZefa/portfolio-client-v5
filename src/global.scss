@@ -11,6 +11,11 @@ body {
   font: 100% 'Muli', sans-serif;
 }
 
+.component-view {
+  height: 100vh;
+  display: flex;
+}
+
 @media only screen and (min-width: 0px) {
   .container {
     width: 100%;
@@ -24,8 +29,12 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
   .container {
-    max-width: 738px;
+    max-width: 994px;
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -33,7 +42,7 @@ body {
 
 @media only screen and (min-width: 1024px) {
   .container {
-    max-width: 994px;
+    max-width: 1440px;
   }
 }
 
