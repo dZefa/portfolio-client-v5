@@ -1,5 +1,5 @@
-@import './styles/colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Muli');
+@import './styles/colors.scss';
 
 html, body {
   margin: 0;
@@ -9,6 +9,7 @@ html, body {
 body {
   background-color: $bg-color;
   font: 100% 'Muli', sans-serif;
+  overflow-x: hidden;
 }
 
 .component-view {
@@ -32,6 +33,29 @@ body {
   .container {
     max-width: 90%;
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .animated {
+		/*CSS transitions*/
+		-o-transition-property: none !important;
+		-moz-transition-property: none !important;
+		-ms-transition-property: none !important;
+		-webkit-transition-property: none !important;
+		transition-property: none !important;
+		/*CSS transforms*/
+		-o-transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		-webkit-transform: none !important;
+		transform: none !important;
+		/*CSS animations*/
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
 }
 
 @media only screen and (min-width: 768px) {
