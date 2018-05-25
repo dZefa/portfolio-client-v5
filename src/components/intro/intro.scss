@@ -32,7 +32,11 @@
 }
 
 @media only screen and (min-width: 425px) {
-  
+  #intro {
+    div {
+      max-width: 80%;
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
