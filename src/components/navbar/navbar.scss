@@ -7,8 +7,7 @@
     font-size: 1rem;
     z-index: 1000;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    line-height: 50px;
 
     a {
       text-decoration: none;
@@ -38,9 +37,6 @@
 
 @media only screen and (min-width: 1024px) {
   #navbar {
-    display: unset;
-    line-height: 50px;
-
     .left-nav {
       padding-left: 5%;
       display: inline-block;
