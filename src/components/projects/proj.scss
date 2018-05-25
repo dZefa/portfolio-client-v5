@@ -1,0 +1,59 @@
+@import '../../styles/colors.scss';
+
+@media only screen and (min-width: 0px) {
+  #proj {
+    .container {
+      width: 100%;
+
+      .component-title {
+        color: $primary-color;
+        text-align: center;
+        
+        h2 {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  #proj {
+    .container {
+      width: 80%;
+      
+      .component-title {
+        text-align: left;
+
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #proj {
+    .container {
+      width: 70%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #proj {
+    .container {
+      .component-title {
+
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #proj {
+    .container {
+      .component-title {
+
+      }
+    }
+  }
+}
