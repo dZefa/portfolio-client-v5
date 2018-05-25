@@ -4,6 +4,7 @@ import './navbar.scss';
 
 interface navbarState {
   backgroundColor: string;
+  borderBottom: string;
   leftColor: string;
   rightColor: string;
 }
@@ -14,6 +15,7 @@ export class Navbar extends React.Component<{}, navbarState> {
 
     this.state = {
       backgroundColor: 'transparent',
+      borderBottom: 'none',
       leftColor: 'white',
       rightColor: 'white'
     }
@@ -35,12 +37,14 @@ export class Navbar extends React.Component<{}, navbarState> {
       if (e.target.documentElement.scrollTop > 20) {
         this.setState({
           backgroundColor: 'white',
+          borderBottom: '1px solid lightgrey',
           leftColor: '#0695F5',
           rightColor: 'black'
         });
       } else {
         this.setState({
           backgroundColor: 'transparent',
+          borderBottom: 'none',
           leftColor: 'white',
           rightColor: 'white'
         });
@@ -53,10 +57,10 @@ export class Navbar extends React.Component<{}, navbarState> {
   }
 
   render() {
-    const { backgroundColor, leftColor, rightColor } = this.state;
+    const { backgroundColor, borderBottom, leftColor, rightColor } = this.state;
 
     return (
-      <div id="navbar" style={{ backgroundColor }}>
+      <div id="navbar" style={{ backgroundColor, borderBottom }}>
         <div className="container">
           <div className="left-nav">
             <a style={{ color: leftColor }} href="" onClick={(e) => {
