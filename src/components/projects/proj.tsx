@@ -2,9 +2,41 @@ import * as React from 'react';
 
 import './proj.scss';
 
-export class Project extends React.Component<{}> {
+import { ProjItem } from './projItem';
+
+interface project {
+  name: string;
+  image: string | null;
+  url: string | null;
+  urlTitle: string | null;
+  paid: boolean;
+  github: string;
+  detail: string;
+  stack: string;
+}
+
+interface ProjectState {
+  projects: Array<project>;
+}
+
+export class Project extends React.Component<{}, ProjectState> {
   constructor(props: {}) {
     super(props);
+
+    this.state = {
+      projects: [
+        {
+          name: 'HRLA Scheduler',
+          image: null,
+          url: null,
+          urlTitle: null,
+          paid: true,
+          github: 'https://github.com/StudioZephyr',
+          detail: 'Scheduling Web Application used by Hack Reactor LA. Developed full stack in JavaScript including React for the front end, and Node/Express on the backend. Deployed on AWS EC2 using AWS RDS PostgreSQL.',
+          stack: 'React, Redux, Webpack, Immutable, Moment, Node, Express, PostgreSQL, Socket.io'
+        }
+      ],
+    }
 
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -38,6 +70,8 @@ export class Project extends React.Component<{}> {
   }
 
   render() {
+    const { projects } = this.state;
+
     return (
       <div>
         <div id="proj" className="component-view">
@@ -46,9 +80,11 @@ export class Project extends React.Component<{}> {
               <h2>PROJECTS</h2>
             </div>
             <div className="proj-body">
-              <div className="project-item">
-                hello
-              </div>
+              {
+                projects.map((proj, i) => {
+                  return <ProjItem key={`proj-item-${i}`} project={proj} />
+                })
+              }
             </div>
           </div>
         </div>
