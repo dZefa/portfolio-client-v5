@@ -1,18 +1,59 @@
+const webpack = require('webpack');
 const path = require('path');
 const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const APP_DIR = path.resolve(__dirname, './src/index.tsx');
 const BUILD_DIR = path.resolve(__dirname, './dist');
-const TEMPLATE_DIR = path.resolve(__dirname, './src/template.index.html');
+const CSS_DIR = path.resolve(__dirname, './src/global.scss');
+
+const extractCSS = new ExtractTextPlugin({
+  filename: 'bundle.css',
+  allChunks: true,
+});
+
+const createCSSfile = new HTMLPlugin({
+  chunks: ['css'],
+  excludeChunks: ['js', 'common'],
+  minify: {
+    collapseWhitespace: true,
+    preserveLineBreaks: true,
+    removeComments: true,
+  },
+  inject: false,
+  hash: true,
+  template: 'src/ejs/css.ejs',
+  filename: 'templates/css.php'
+});
+
+const createJSfile = new HTMLPlugin({
+  chunks: ['js', 'common'],
+  excludeChunks: ['css'],
+  minify: {
+    collapseWhitespace: true,
+    preserveLineBreaks: true,
+    removeComments: true,
+  },
+  inject: false,
+  hash: true,
+  template: 'src/ejs/js.ejs',
+  filename: 'templates/js.php'
+});
 
 module.exports = {
   entry: {
-    app: APP_DIR,
+    'css': [
+      CSS_DIR
+    ],
+    'js': [
+      APP_DIR
+    ],
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js',
+    filename: '[name].app.bundle.js',
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
@@ -25,17 +66,14 @@ module.exports = {
       },
       {
         test: /.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
+        use: extractCSS.extract([
           {
             loader: 'css-loader',
           },
           {
             loader: 'sass-loader',
           }
-        ]
+        ])
       },
       {
         enforce: 'pre',
@@ -44,11 +82,20 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          minChunks: 2,
+        },
+      },
+    },
+  },
   plugins: [
     new CleanPlugin(['dist']),
-    new HTMLPlugin({
-      template: TEMPLATE_DIR,
-      inject: 'body',
-    }),
+    createCSSfile,
+    createJSfile,
+    extractCSS
   ]
 };
