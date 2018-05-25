@@ -16,6 +16,10 @@ body {
   display: flex;
 }
 
+.component-title {
+  padding-top: 50px;
+}
+
 @media only screen and (min-width: 0px) {
   .container {
     max-width: 100%;
