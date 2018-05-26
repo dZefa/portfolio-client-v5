@@ -25,7 +25,37 @@ export class Bio extends React.Component<{}, BioState> {
       link2: null,
       aboutMe: 'Hi! I am a passionate software engineer who enjoys building new products and experiences for everyone to enjoy. I like to work up and down the stack as well as learning and using new technologies to come up with unique solutions. I am not tied to any specific tech stack or language and believe that the more you know, the better solutions you can come up with!',
     };
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  private handleAnimation(el: HTMLDivElement, top: number) {
+    const hasClass = el.classList.contains('animated');
+
+    if (!hasClass && top > el.offsetTop) {
+      el.classList.add('showProject');
+      el.classList.add('fadeIn');
+      el.classList.add('animated');
+    }
+  }
+
+  private handleScroll() {
+    const bioEl = document.querySelector(`.bio-body`);
+
+    const scrollFromTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+
+    this.handleAnimation(bioEl as HTMLDivElement, windowHeight + scrollFromTop);
+  }
+
   render() {
     const { currentProj, currentProjDetail, title1, title2, link1, link2, aboutMe } = this.state;
 
