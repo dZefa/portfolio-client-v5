@@ -2,16 +2,20 @@ import * as React from 'react';
 
 import './navbar.scss';
 
-interface navbarState {
+interface NavbarProps {
+  toggleModal: VoidFunction;
+};
+
+interface NavbarState {
   backgroundColor: string;
   borderBottom: string;
   leftColor: string;
   rightColor: string;
   isMobile: boolean;
-}
+};
 
-export class Navbar extends React.Component<{}, navbarState> {
-  constructor(props: {}) {
+export class Navbar extends React.Component<NavbarProps, NavbarState> {
+  constructor(props: NavbarProps) {
     super(props);
 
     this.state = {
@@ -100,7 +104,7 @@ export class Navbar extends React.Component<{}, navbarState> {
             <a style={{ color: leftColor }} href="" onClick={(e) => {
               e.preventDefault();
               this.smoothScrollTo('intro');
-            }}>Daniel Chong</a>
+            }}>Daniel M Chong</a>
           </div>
           <div className="right-nav">
             <a id="nav-proj" style={{ color: rightColor }} href="" onClick={(e) => {

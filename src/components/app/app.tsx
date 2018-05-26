@@ -34,7 +34,7 @@ export class App extends React.Component<{}, AppState> {
     return (
       <div>
         <ContactMe hidden={modalHidden} toggleModal={this.toggleModal} />
-        <Navbar />
+        <Navbar toggleModal={this.toggleModal} />
         <Intro />
         <Project />
         <Skills />
