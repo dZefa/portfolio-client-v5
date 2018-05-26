@@ -72,7 +72,7 @@ export class Skills extends React.Component<{}, SkillState> {
     }
   }
 
-  private handleScroll(e: any) {
+  private handleScroll() {
     const skills = document.querySelectorAll('.skill-list');
 
     const scrollFromTop = window.pageYOffset;
