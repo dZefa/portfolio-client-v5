@@ -2,6 +2,8 @@
 
 @media only screen and (min-width: 0px) {
   #skill {
+    min-height: unset;
+
     .container {
       width: 100%;
 
@@ -16,13 +18,13 @@
 
       .skill-body {
         display: flex;
-        flex-flow: wrap;
-        padding-bottom: 20px;
-        width: 90%;
+        flex-flow: column;
+        padding-bottom: 50px;
         color: $text-color;
 
         .skill-list {
-          margin: auto;
+          margin-left: 30px;
+          margin-right: 30px; 
         }
       }
     }
@@ -41,12 +43,47 @@
       .component-title {
         text-align: left;
       }
+
+      .skill-body {
+        flex-flow: unset;
+
+        .skill-list {
+          animation-duration: 2s;
+          -webkit-animation-duration: 2s;
+          -moz-animation-duration: 2s;
+          -o-animation-duration: 2s;
+          -ms-animation-duration: 2s;
+          animation-delay: 1s;
+          -webkit-animation-delay: 1s;
+          -moz-animation-delay: 1s;
+          -o-animation-delay: 1s;
+          -ms-animation-delay: 1s;
+          margin-left: unset;
+          margin-right: unset;
+          ul {
+            li {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
     }
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  
+  #skill {
+    .container {
+      .skill-body {
+        justify-content: space-around;
+
+        .skill-list {
+          min-width: 40%;
+          visibility: hidden;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1440px) {
