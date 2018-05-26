@@ -1,0 +1,54 @@
+@import '../../styles/colors.scss';
+
+@media only screen and (min-width: 0px) {
+  #skill {
+    .container {
+      width: 100%;
+
+      .component-title {
+        color: $primary-color;
+        text-align: center;
+
+        h2 {
+          font-weight: normal;
+        }
+      }
+
+      .skill-body {
+        display: flex;
+        flex-flow: wrap;
+        padding-bottom: 20px;
+        width: 90%;
+        color: $text-color;
+
+        .skill-list {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  
+}
+
+@media only screen and (min-width: 768px) {
+  #skill {
+    .container {
+      width: 70%;
+
+      .component-title {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  
+}
+
+@media only screen and (min-width: 1440px) {
+  
+}
