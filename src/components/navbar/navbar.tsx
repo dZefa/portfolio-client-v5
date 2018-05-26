@@ -7,6 +7,7 @@ interface navbarState {
   borderBottom: string;
   leftColor: string;
   rightColor: string;
+  isMobile: boolean;
 }
 
 export class Navbar extends React.Component<{}, navbarState> {
@@ -17,7 +18,8 @@ export class Navbar extends React.Component<{}, navbarState> {
       backgroundColor: 'transparent',
       borderBottom: 'none',
       leftColor: 'white',
-      rightColor: 'white'
+      rightColor: 'white',
+      isMobile: false,
     }
 
     this.navScrollEvent = this.navScrollEvent.bind(this);
@@ -32,32 +34,43 @@ export class Navbar extends React.Component<{}, navbarState> {
   }
 
   private navScrollEvent(e: any) {
-    if (e.target.documentElement.offsetWidth > 768) {
-      const nav = document.querySelector('#navbar');
+    const nav = document.querySelector('#navbar');
+
+    if (window.innerWidth > 768) {
       if (e.target.documentElement.scrollTop > 20) {
         this.setState({
           backgroundColor: 'white',
           borderBottom: '1px solid lightgrey',
           leftColor: '#0695F5',
-          rightColor: 'black'
+          rightColor: 'black',
+          isMobile: false,
         });
       } else {
         this.setState({
           backgroundColor: 'transparent',
           borderBottom: 'none',
           leftColor: 'white',
-          rightColor: 'white'
+          rightColor: 'white',
+          isMobile: false,
         });
       }
+    } else {
+      this.setState({
+        backgroundColor: 'white',
+        borderBottom: '1px solid lightgrey',
+        leftColor: '#0695F5',
+        rightColor: 'black',
+        isMobile: true,
+      });
     }
   }
 
   private smoothScrollTo(key: string) {
-    document.querySelector(`#${key}`).scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(`#${key}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   render() {
-    const { backgroundColor, borderBottom, leftColor, rightColor } = this.state;
+    const { backgroundColor, borderBottom, leftColor, rightColor, isMobile } = this.state;
 
     return (
       <div id="navbar" style={{ backgroundColor, borderBottom }}>
