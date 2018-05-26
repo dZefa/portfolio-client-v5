@@ -5,6 +5,7 @@ import { Intro } from '../intro/intro';
 import { Project } from '../projects/proj';
 import { Skills } from '../skills/skills';
 import { Bio } from '../bio/bio';
+import { Footer } from '../footer/footer';
 
 export class App extends React.Component<{}> {
   render() {
@@ -15,6 +16,7 @@ export class App extends React.Component<{}> {
         <Project />
         <Skills />
         <Bio />
+        <Footer />
       </div>
     )
   }
