@@ -76,11 +76,10 @@
   #skill {
     .container {
       .skill-body {
-        justify-content: center;
+        justify-content: space-around;
         margin: auto;
 
         .skill-list {
-          min-width: 40%;
           visibility: hidden;
         }
       }
