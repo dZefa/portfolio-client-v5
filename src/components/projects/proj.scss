@@ -1,5 +1,9 @@
 @import '../../styles/colors.scss';
 
+.showProject {
+  visibility: visible !important;
+}
+
 @media only screen and (min-width: 0px) {
   #proj {
     .container {
@@ -13,6 +17,48 @@
           font-weight: normal;
         }
       }
+
+      .proj-body {
+        display: flex;
+        flex-flow: column;
+        padding-bottom: 20px;
+        margin: auto;
+
+        .project-item {
+          min-height: 250px;
+          text-align: center;
+          background-color: white;
+          margin-bottom: 15px;
+
+          h3 {
+            margin-top: 15px;
+            color: $secondary-color;
+          }
+
+          .project-right {
+            margin: auto;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            h3 {
+              color: $secondary-color;
+            }
+
+            h4 {
+              font-style: italic;
+            }
+
+            .project-stack {
+              font-style: italic;
+            }
+
+            a {
+              color: black;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -20,11 +66,13 @@
 @media only screen and (min-width: 425px) {
   #proj {
     .container {
-      width: 80%;
-      
-      .component-title {
-        text-align: left;
-
+      .proj-body {
+        .project-item {
+          .project-right {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        }
       }
     }
   }
@@ -34,6 +82,32 @@
   #proj {
     .container {
       width: 70%;
+
+      .component-title {
+        text-align: left;
+      }
+
+      .proj-body {
+        max-width: unset;
+
+        .project-item {
+          animation-duration: 2s;
+          -webkit-animation-duration: 2s;
+          -moz-animation-duration: 2s;
+          -o-animation-duration: 2s;
+          -ms-animation-duration: 2s;
+          animation-delay: 1s;
+          -webkit-animation-delay: 1s;
+          -moz-animation-delay: 1s;
+          -o-animation-delay: 1s;
+          -ms-animation-delay: 1s;
+
+          .project-right {
+            padding-left: 25px;
+            padding-right: 25px;
+          }
+        }
+      }
     }
   }
 }
@@ -41,19 +115,35 @@
 @media only screen and (min-width: 1024px) {
   #proj {
     .container {
-      .component-title {
+      .proj-body {
+        .project-item {
+          visibility: hidden;
+          display: flex;
+          justify-content: space-between;
 
+          .project-left {
+            align-self: center;
+            min-width: 30%;
+            margin: auto;
+
+            h3 {
+              margin-top: unset;
+              margin-bottom: unset;
+            }
+          }
+
+          .project-right {
+            align-self: center;
+            padding-left: unset;
+            padding-right: unset;
+            max-width: 50%;
+          }
+        }
       }
     }
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  #proj {
-    .container {
-      .component-title {
 
-      }
-    }
-  }
 }
