@@ -92,7 +92,7 @@
       }
 
       .proj-body {
-        max-width: unset;
+        width: 90%;
 
         .project-item {
           animation-duration: 2s;
@@ -123,7 +123,7 @@
         .project-item {
           visibility: hidden;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
 
           .project-left {
             align-self: center;

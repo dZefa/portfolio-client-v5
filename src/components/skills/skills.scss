@@ -46,6 +46,7 @@
 
       .skill-body {
         flex-flow: unset;
+        width: 90%;
 
         .skill-list {
           animation-duration: 2s;
@@ -75,7 +76,8 @@
   #skill {
     .container {
       .skill-body {
-        justify-content: space-around;
+        justify-content: center;
+        margin: auto;
 
         .skill-list {
           min-width: 40%;
