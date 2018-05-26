@@ -22,18 +22,21 @@ export class Navbar extends React.Component<{}, navbarState> {
       isMobile: false,
     }
 
-    this.navScrollEvent = this.navScrollEvent.bind(this);
+    this.navScrollToEvent = this.navScrollToEvent.bind(this);
+    this.navActiveHandler = this.navActiveHandler.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.navScrollEvent);
+    window.addEventListener('scroll', this.navScrollToEvent);
+    window.addEventListener('scroll', this.navActiveHandler);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.navScrollEvent);
+    window.removeEventListener('scroll', this.navScrollToEvent);
+    window.removeEventListener('scroll', this.navActiveHandler);
   }
 
-  private navScrollEvent(e: any) {
+  private navScrollToEvent(e: any) {
     const nav = document.querySelector('#navbar');
 
     if (window.innerWidth > 768) {
@@ -64,6 +67,24 @@ export class Navbar extends React.Component<{}, navbarState> {
       });
     }
   }
+  
+  private navActiveHandler(e: any) {
+    const scrollPos: number = e.srcElement.documentElement.scrollTop;
+    const navs = ['proj', 'skill', 'bio'];
+
+    navs.forEach((nav, i) => {
+      let refEl = document.getElementById(`${nav}`);
+      let refLink = document.querySelector(`#nav-${nav}`);
+
+      if (refEl.offsetTop - 300 < scrollPos && (refEl.offsetTop+ refEl.clientHeight) > scrollPos + 300) {
+        if (!refLink.classList.contains('activeNav')) {
+          refLink.classList.add('activeNav');
+        }
+      } else {
+        refLink.classList.remove('activeNav');
+      }
+    });
+  }
 
   private smoothScrollTo(key: string) {
     document.querySelector(`#${key}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -82,15 +103,15 @@ export class Navbar extends React.Component<{}, navbarState> {
             }}>Daniel Chong</a>
           </div>
           <div className="right-nav">
-            <a style={{ color: rightColor }} href="" onClick={(e) => {
+            <a id="nav-proj" style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
               this.smoothScrollTo('proj');
             }}>Projects</a>
-            <a style={{ color: rightColor }} href="" onClick={(e) => {
+            <a id="nav-skill" style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
               this.smoothScrollTo('skill');
             }}>Skills</a>
-            <a style={{ color: rightColor }} href="" onClick={(e) => {
+            <a id="nav-bio" style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
               this.smoothScrollTo('bio');
             }}>About Me</a>
