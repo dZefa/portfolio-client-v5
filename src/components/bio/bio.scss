@@ -1,21 +1,91 @@
 @import '../../styles/colors.scss';
 
 @media only screen and (min-width: 0px) {
+  #bio {
+    .container {
+      width: 100%;
 
+      .component-title {
+        color: $primary-color;
+        text-align: center;
+
+        h2 {
+          font-weight: normal;
+        }
+      }
+
+      .bio-body {
+        text-align: center;
+        padding-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+
+        p {
+          color: $text-color;
+          width: 90%;
+          margin: auto;
+        }
+
+        h4 {
+          em {
+            font-weight: normal;
+          }
+        }
+
+        .current-proj {
+          a {
+            color: black;
+          }
+        }
+      }
+    }
+  }
 }
 
-@media only screen and (min-width: 425px) {
-  
+@media only screen and (min-width: 414px) {
+  #bio {
+    .container {
+      .bio-body {
+        .aboutMe {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  
+  #bio {
+    .container {
+      width: 70%;
+
+      .component-title {
+        text-align: left;
+      }
+
+      .bio-body {
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  
+  #bio {
+    .container {
+      .bio-body  {
+        p {
+          width: 70%;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-  
+
 }
