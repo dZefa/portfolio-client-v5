@@ -9,7 +9,7 @@ interface project {
   image: string | null;
   url: string | null;
   urlTitle: string | null;
-  paid: boolean;
+  position: string;
   github: string;
   detail: string;
   stack: string;
@@ -30,10 +30,28 @@ export class Project extends React.Component<{}, ProjectState> {
           image: null,
           url: null,
           urlTitle: null,
-          paid: true,
+          position: 'Full Stack Engineer',
           github: 'https://github.com/StudioZephyr',
-          detail: 'Scheduling Web Application used by Hack Reactor LA. Developed full stack in JavaScript including React for the front end, and Node/Express on the backend. Deployed on AWS EC2 using AWS RDS PostgreSQL.',
-          stack: 'React, Redux, Webpack, Immutable, Moment, Node, Express, PostgreSQL, Socket.io'
+          detail: 'Scheduling Web Application used by Hack Reactor LA. Developed full stack in JavaScript including React for the front end, and Node/Express on the backend. Deployed using AWS.',
+          stack: 'React, Redux, Webpack, Immutable, Moment, Node, Express, PostgreSQL, Socket.io, S3, EC2, RDS'
+        }, {
+          name: 'CodeSling.io',
+          image: null,
+          url: null,
+          urlTitle: null,
+          position: 'Back End Engineer',
+          github: 'https://github.com/codesling/codesling.io',
+          detail: 'Open source, online code sharing platform. Currently used by Hack Reactor LA curriculum as Legacy project. Worked on Back end mainly working with MongoDB and custom Shell commands with npm.',
+          stack: 'Node, Express, MongoDB, Shell, Lodash'
+        }, {
+          name: 'FlyC',
+          image: 'https://lh3.googleusercontent.com/7_r8UWmc3pSwWeKgbOv3q4Nx1qy3KjSYXO7TUeHD9mDgjaOs72tzZBrbeQe8pG4UVqM=s180-rw',
+          url: 'https://play.google.com/store/apps/details?id=tech.studioZefa.Test&hl=en',
+          urlTitle: 'Google Play',
+          position: 'Designer and Developer',
+          github: 'https://github.com/dzefa/FlyC',
+          detail: 'Mobile vertical platformer gaming app on Google Play Store. Worked mainly in C# and Unity. Monetized using Google\'s AdMob and own algorithm.',
+          stack: 'C#, Unity, Android Studio, Google Play, Firebase, AdMob',
         }
       ],
     }
@@ -53,7 +71,8 @@ export class Project extends React.Component<{}, ProjectState> {
     const hasClass = el.classList.contains('animated');
 
     if (!hasClass && top > el.offsetTop) {
-      el.classList.add('bounceInRight');
+      el.classList.add('showProject');
+      el.classList.add('fadeIn');
       el.classList.add('animated');
     }
   }
