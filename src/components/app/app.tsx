@@ -4,6 +4,7 @@ import { Navbar } from '../navbar/navbar';
 import { Intro } from '../intro/intro';
 import { Project } from '../projects/proj';
 import { Skills } from '../skills/skills';
+import { Bio } from '../bio/bio';
 
 export class App extends React.Component<{}> {
   render() {
@@ -13,6 +14,7 @@ export class App extends React.Component<{}> {
         <Intro />
         <Project />
         <Skills />
+        <Bio />
       </div>
     )
   }
