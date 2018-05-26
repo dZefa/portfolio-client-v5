@@ -25,9 +25,9 @@ export class Footer extends React.Component<{}, FooterState> {
       <div>
         <div id="footer">
           <div className="container">
-            <p>{ name }</p>
+            <p className="footer-name">{ name }</p>
             <p>{ phone }</p>
-            <a href={`mailto:${ email }`} target="_blank">{ email }</a>
+            <a href={`mailto:${ email }`}>{ email }</a>
           </div>
         </div>
       </div>
