@@ -88,7 +88,7 @@ export class Navbar extends React.Component<{}, navbarState> {
             }}>Projects</a>
             <a style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
-              this.smoothScrollTo('tech');
+              this.smoothScrollTo('skill');
             }}>Skills</a>
             <a style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
