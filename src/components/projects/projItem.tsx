@@ -6,7 +6,7 @@ interface ProjItemProps {
     image: string | null;
     url: string | null;
     urlTitle: string | null;
-    paid: boolean;
+    position: string;
     github: string;
     detail: string;
     stack: string;
@@ -19,22 +19,31 @@ export class ProjItem extends React.Component<ProjItemProps> {
   }
 
   render() {
-    const { name, image, url, urlTitle, paid, github, detail, stack  } = this.props.project;
+    const { name, image, url, urlTitle, position, github, detail, stack  } = this.props.project;
 
     return (
       <div className="project-item">
         <div className="project-left">
           {
-            image &&
+            (window.innerWidth > 768 && image) &&
             (
               <img src={image} alt={name} />
             )
           }
+          <h3>{ name }</h3>
         </div>
         <div className="project-right">
-          <p>{ name }</p>
+          <h4>Position: { position }</h4>
           <p>{ detail }</p>
-          <p>{ stack }</p>
+          <p className="project-stack">{ stack }</p>
+          {
+            url &&
+            <a href={url} target="_blank">{ urlTitle }</a>
+          }
+          {
+            url && ` || `
+          }
+          <a href={github} target="_blank">GitHub</a>
         </div>
       </div>
     )
