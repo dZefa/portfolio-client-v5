@@ -1,7 +1,27 @@
 @import '../../styles/colors.scss';
 
 @media only screen and (min-width: 0px) {
+  #footer {
+    min-height: 50px;
+    padding-top: 14px;
+    border-top: 1px solid slategray;
+    background-color: white;
+    padding-bottom: 30px;
+    .container {
+      display: flex;
+      flex-flow: column;
+      text-align: center;
 
+      .footer-name {
+        color: $secondary-color;
+      }
+
+      a {
+        margin-top: 16px;
+        color: black;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 414px) {
@@ -9,7 +29,14 @@
 }
 
 @media only screen and (min-width: 768px) {
-  
+  #footer {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    .container {
+      flex-flow: row;
+      justify-content: space-evenly;
+    }
+  }
 }
 
 @media only screen and (min-width: 1024px) {
