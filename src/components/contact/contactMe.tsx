@@ -26,13 +26,29 @@ export class ContactMe extends React.Component<ContactMeProps, ContactMeState> {
       subject: '',
       message: '',
     };
+
+    this.contactClickHandler = this.contactClickHandler.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('click', this.contactClickHandler);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.contactClickHandler);
+  }
+
+  private contactClickHandler(e: any) {
+    if (e.target == document.getElementById('contact')) {
+      this.props.toggleModal();
+    }
   }
 
   render() {
     const { hidden, toggleModal } = this.props;
-    
+
     return (
-      <div hidden={hidden}>
+      <div id="contact" hidden={hidden}>
         contact me!
       </div>
     )
