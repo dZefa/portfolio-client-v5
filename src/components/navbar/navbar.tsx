@@ -5,6 +5,7 @@ import './navbar.scss';
 interface NavbarProps {
   toggleModal: VoidFunction;
   hidden: boolean;
+  onContact: boolean;
 };
 
 interface NavbarState {
@@ -13,7 +14,6 @@ interface NavbarState {
   leftColor: string;
   rightColor: string;
   isMobile: boolean;
-  onContact: boolean;
 };
 
 export class Navbar extends React.Component<NavbarProps, NavbarState> {
@@ -26,7 +26,6 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
       leftColor: 'white',
       rightColor: 'white',
       isMobile: false,
-      onContact: false,
     };
 
     this.navScrollToEvent = this.navScrollToEvent.bind(this);
@@ -83,7 +82,7 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
       let refEl = document.getElementById(`${nav}`);
       let refLink = document.querySelector(`#nav-${nav}`);
 
-      if (!this.state.onContact) {
+      if (!this.props.onContact) {
         if (refEl.offsetTop - 300 < scrollPos && (refEl.offsetTop+ refEl.clientHeight) > scrollPos + 300) {
           if (!refLink.classList.contains('activeNav')) {
             refLink.classList.add('activeNav');
@@ -95,21 +94,6 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
         refLink.classList.remove('activeNav');
       }
     });
-  }
-
-  private toggleContact() {
-    const contactEl = document.querySelector(`#nav-contact`);
-
-    if (this.props.hidden) {
-      contactEl.classList.add('activeNav');
-    } else {
-      contactEl.classList.remove('activeNav');
-    }
-
-    this.setState({
-      onContact: !this.state.onContact,
-    });
-
   }
 
   private smoothScrollTo(key: string) {
@@ -144,8 +128,12 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
             }}>About Me</a>
             <a id="nav-contact" style={{ color: rightColor }} href="" onClick={(e) => {
               e.preventDefault();
-              this.toggleContact();
-              toggleModal();
+
+              if (isMobile) {
+                this.smoothScrollTo('footer');
+              } else {
+                toggleModal();
+              }
             }}>Contact Me</a>
             <a style={{ color: rightColor }} href="https://drive.google.com/file/d/1oBvWXSx6PH0lc80_dNPuAePyurOOgA0T/view" target="_blank">
               Resume
