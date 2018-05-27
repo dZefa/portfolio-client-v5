@@ -28,6 +28,14 @@ export class Footer extends React.Component<{}, FooterState> {
             <p className="footer-name">{ name }</p>
             <p>{ phone }</p>
             <a href={`mailto:${ email }`}>{ email }</a>
+            <div className="footer-icons">
+              <a href="https://linkedin.com/in/danchong625" target="_blank">
+                <i className="fab fa-linkedin fa-2x"></i>
+              </a>
+              <a href="https://github.com/dzefa" target="_blank">
+                <i className="fab fa-github-square fa-2x"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
