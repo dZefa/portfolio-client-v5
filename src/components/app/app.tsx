@@ -26,12 +26,17 @@ export class App extends React.Component<{}, AppState> {
   }
 
   toggleModal() {
-    const contactEl = document.querySelector(`#nav-contact`);
+    const contactLink = document.querySelector(`#nav-contact`);
+    const contactEl = document.querySelector(`.modal-content`);
 
     if (this.state.modalHidden) {
-      contactEl.classList.add('activeNav');
+      contactLink.classList.add('activeNav');
+      contactEl.classList.add('animated');
+      contactEl.classList.add('slideInDown');
     } else {
-      contactEl.classList.remove('activeNav');
+      contactLink.classList.remove('activeNav');
+      contactEl.classList.remove('animated');
+      contactEl.classList.remove('slideInDown');
     }
 
     this.setState({
