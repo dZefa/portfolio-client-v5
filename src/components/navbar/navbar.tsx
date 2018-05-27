@@ -90,8 +90,6 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
         } else {
           refLink.classList.remove('activeNav');
         }
-      } else if (refLink.classList.contains('activeNav')) {
-        refLink.classList.remove('activeNav');
       }
     });
   }
