@@ -1,7 +1,84 @@
 @import '../../styles/colors.scss';
 
 @media only screen and (min-width: 0px) {
+  #contact {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
 
+    .container {
+      width: 50%;
+      display: flex;
+      flex-flow: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      width: 100%;
+      min-height: 50vh;
+      max-height: 75vh;
+      display: flex;
+      flex-flow: column;
+      background-color: $bg-color;
+      border: 2px solid slategrey;
+
+      .modal-header {
+        height: 50px;
+        color: $secondary-color;
+        border-bottom: 1px solid lightgray;
+        line-height: 50px;
+        text-align: center;
+
+        h2 {
+          margin: 0;
+        }
+      }
+
+      .modal-body {
+        form {
+          display: flex;
+          flex-flow: column;
+          padding-top: 15px;
+
+          .form-group {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 15px;
+
+            label {
+              width: 15%;
+            }
+
+            input, textarea {
+              width: 70%;
+            }
+
+            #message {
+              max-width: 70%;
+              min-width: 70%;
+              max-height: 30vh;
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        flex-flow: row-reverse;
+        width: 85%;
+        margin: 15px auto;
+
+        button {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 425px) {
