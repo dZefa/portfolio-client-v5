@@ -20,6 +20,17 @@
         margin-top: 16px;
         color: black;
       }
+
+      .footer-icons {
+        padding-top: 14px;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-evenly;
+
+        i {
+          color: $primary-color;
+        }
+      }
     }
   }
 }
@@ -35,6 +46,17 @@
     .container {
       flex-flow: row;
       justify-content: space-evenly;
+
+      .footer-icons {
+        padding-top: unset;
+
+        a {
+          margin-top: unset;
+          margin: auto;
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+      }
     }
   }
 }
