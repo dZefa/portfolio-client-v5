@@ -27,6 +27,23 @@
         font-style: italic;
         padding: 0 10px;
       }
+
+      .intro-buttons {
+        display: flex;
+        flex-flow: column;
+
+        a {
+          border: 1px solid slategray;
+          color: $secondary-color;
+          background-color: rgba(255, 255, 255, 0.9);
+          width: 80%;
+          text-decoration: none;
+          margin: 5px auto;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          border-radius: 5px;
+        }
+      }
     }
   }
 }
@@ -43,6 +60,16 @@
   #intro {
     div {
       max-width: 70%;
+
+      .intro-buttons {
+        flex-flow: row;
+        margin: auto;
+        margin-top: 20px;
+
+        a {
+          width: 40%;
+        }
+      }
     }
   }
 }
