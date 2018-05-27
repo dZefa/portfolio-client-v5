@@ -28,21 +28,21 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
       isMobile: false,
     };
 
-    this.navScrollToEvent = this.navScrollToEvent.bind(this);
+    this.navbarStyleHandler = this.navbarStyleHandler.bind(this);
     this.navActiveHandler = this.navActiveHandler.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.navScrollToEvent);
+    window.addEventListener('scroll', this.navbarStyleHandler);
     window.addEventListener('scroll', this.navActiveHandler);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.navScrollToEvent);
+    window.removeEventListener('scroll', this.navbarStyleHandler);
     window.removeEventListener('scroll', this.navActiveHandler);
   }
 
-  private navScrollToEvent(e: any) {
+  private navbarStyleHandler(e: any) {
     const nav = document.querySelector('#navbar');
 
     if (window.innerWidth > 768) {
@@ -81,14 +81,16 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
     navs.forEach((nav, i) => {
       let refEl = document.getElementById(`${nav}`);
       let refLink = document.querySelector(`#nav-${nav}`);
-
-      if (!this.props.onContact) {
-        if (refEl.offsetTop - 300 < scrollPos && (refEl.offsetTop+ refEl.clientHeight) > scrollPos + 300) {
-          if (!refLink.classList.contains('activeNav')) {
-            refLink.classList.add('activeNav');
+      
+      if(!this.state.isMobile) {
+        if (!this.props.onContact) {
+          if (refEl.offsetTop - 300 < scrollPos && (refEl.offsetTop+ refEl.clientHeight) > scrollPos + 300) {
+            if (!refLink.classList.contains('activeNav')) {
+              refLink.classList.add('activeNav');
+            }
+          } else {
+            refLink.classList.remove('activeNav');
           }
-        } else {
-          refLink.classList.remove('activeNav');
         }
       }
     });
@@ -96,6 +98,20 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
 
   private smoothScrollTo(key: string) {
     document.querySelector(`#${key}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  private toggleCollapse() {
+    const rightEl = document.querySelector('.right-nav');
+
+    if (!rightEl.classList.contains('showCollapse')) {
+      rightEl.classList.add('showCollapse');
+      rightEl.classList.add('animated');
+      rightEl.classList.add('fadeIn');
+    } else {
+      rightEl.classList.remove('showCollapse');
+      rightEl.classList.remove('animated');
+      rightEl.classList.remove('fadeIn');
+    }
   }
 
   render() {
@@ -110,6 +126,17 @@ export class Navbar extends React.Component<NavbarProps, NavbarState> {
               e.preventDefault();
               this.smoothScrollTo('intro');
             }}>Daniel M Chong</a>
+            {
+              // isMobile && 
+              // (
+              //   <span className="collapsed-bar" onClick={(e) => {
+              //     e.preventDefault();
+              //     this.toggleCollapse();
+              //   }}>
+              //     <i className="fas fa-bars fa-2x"></i>
+              //   </span>
+              // )
+            }
           </div>
           <div className="right-nav">
             <a id="nav-proj" style={{ color: rightColor }} href="" onClick={(e) => {
