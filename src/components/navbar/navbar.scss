@@ -4,12 +4,16 @@
   color: $primary-color !important;
 }
 
+.showCollapse {
+  visibility: visible !important;
+}
+
 @media only screen and (min-width: 0px) {
   #navbar {
     height: 50px;
     position: fixed;
     font-size: 1rem;
-    z-index: 1000;
+    z-index: 100;
     width: 100%;
     line-height: 50px;
 
@@ -22,11 +26,24 @@
       text-align: center;
       width: 100%;
       margin: auto;
+
+      a {
+        color: $secondary-color !important;
+      }
+
+      .collapsed-bar {
+        position: absolute;
+        right: 20px;
+
+        i {
+          line-height: 50px;
+        }
+      }
     }
 
     .right-nav {
-      width: 0%;
       visibility: hidden;
+      min-height: 50px;
     }
   }
 }
