@@ -88,10 +88,53 @@ export class ContactMe extends React.Component<ContactMeProps, ContactMeState> {
 
   render() {
     const { hidden, toggleModal } = this.props;
+    const { firstName, lastName, email, subject, message } = this.state;
 
     return (
-      <div id="contact" hidden={hidden}>
-        contact me!
+      <div hidden={hidden}>
+        <div id="contact" className="component-view">
+          <div className="container">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h2>Let's Chat!</h2>
+              </div>
+              <div className="modal-body">
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="firstName">First Name</label>
+                    <input id="firstName" type="text" onChange={e => this.setFirst(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input id="lastName" type="text" onChange={e => this.setLast(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="text" onChange={e => this.setEmail(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="subject">Subject</label>
+                    <input id="subject" type="text" onChange={e => this.setSub(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="message">Message</label>
+                    <textarea id="message" rows={5} onChange={e => this.setMessage(e.target.value)} />
+                  </div>
+                </form>
+              </div>
+              <div className="modal-footer">
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  toggleModal();
+                }}>Cancel</button>
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  this.sendInfo({ firstName, lastName, email, subject, message });
+                }}>Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
