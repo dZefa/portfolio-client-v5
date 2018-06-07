@@ -17,10 +17,10 @@ export class Bio extends React.Component<{}, BioState> {
     super(props);
 
     this.state = {
-      currentProj: 'MunchE',
-      currentProjDetail: 'MunchE is a workplace/school/community based social rating and advice web application. The goal is to have group-specific ratings/advice/reviews of local businesses so you don\'t have to sift through information not relevant to you.',
-      title1: 'API',
-      link1: 'https://github.com/dZefa/munch-e-api',
+      currentProj: 'Click RPG',
+      currentProjDetail: 'Click-based RPG using Phaser + React so far',
+      title1: 'code',
+      link1: 'https://github.com/dZefa/click-rpg',
       title2: null,
       link2: null,
       aboutMe: 'Hi! I am a passionate software engineer who enjoys building new products and experiences for everyone to enjoy. I like to work up and down the stack as well as learning and using new technologies to come up with unique solutions. I am not tied to any specific tech stack or language and believe that the more you know, the better solutions you can come up with!',
